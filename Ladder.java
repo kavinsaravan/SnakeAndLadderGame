@@ -1,13 +1,11 @@
-public class Ladder extends ClimbOrDescend{
-  int x;
-  int y; 
+public class Ladder extends Cell{
+  
 
-  public Ladder(int x, int y) {
-    this.x = x;
-    this.y = y;
+  public Ladder(int row, int col) {
+    super(row, col);
   }
 
   public String toString() {
-    return "Ladder " + x + "/" + y;
+    return "Ladder: " + getRow() + "/" + getCol();
   }
 }

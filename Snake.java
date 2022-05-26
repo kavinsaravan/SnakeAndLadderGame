@@ -1,13 +1,11 @@
-public class Snake extends ClimbOrDescend{
-  int x;
-  int y; 
+public class Snake extends Cell{
+  
 
-  public Snake(int x, int y) {
-    this.x = x;
-    this.y = y;
+  public Snake(int row, int col) {
+    super(row, col);
   }
 
   public String toString() {
-    return "Snake " + x + "/" + y;
+    return "Snake: " + getRow() + "/" + getCol();
   }
 }

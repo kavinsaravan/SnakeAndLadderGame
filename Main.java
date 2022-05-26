@@ -1,7 +1,15 @@
-//import java.util.*;
+ import java.util.*;
 
 class Main {
   public static void main(String[] args) {
-   Grid grid = new Grid();
+   Game grid = new Game();
+   grid.printBoard();
+   while (true) {
+     Player p = grid.play();
+     if(p != null){
+       System.out.print(p + " you won! \n");
+       break;
+     }
+    }
   }
 }
