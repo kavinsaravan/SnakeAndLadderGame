@@ -1,11 +1,11 @@
 public class Ladder extends Cell{
   
 
-  public Ladder(int row, int col) {
-    super(row, col);
+  public Ladder(int startRow, int startCol, int endRow, int endCol) {
+    super(startRow, startCol, endRow, endCol);
   }
 
   public String toString() {
-    return "Ladder: " + getRow() + "/" + getCol();
+    return "Ladder: " + getStartRow() + "/" + getStartCol();
   }
 }

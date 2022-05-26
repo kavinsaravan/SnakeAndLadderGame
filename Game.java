@@ -1,74 +1,23 @@
 public class Game {
-  private Cell[][] grid = { 
-      {
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Ladder(2, 5), 
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Ladder(1, 8), 
-      },
-       {
-        new Cell(),
-        new Snake(0, 2), 
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Ladder(2, 6), 
-        new Snake(0, 5), 
-        new Cell(),
-        new Cell(),
-        new Cell(),
-      },
-       {
-        new Cell(),
-        new Cell(),
-        new Ladder(4, 5), 
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Cell(),
-      },
-       {
-        new Cell(),
-        new Snake(2, 3), 
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Snake(1, 3), 
-        new Ladder(4, 7),
-        new Cell(),
-        new Cell(),
-        new Cell(),
-      },
-       {
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Snake(3, 4), 
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Cell(),
-        new Snake(2, 7),
-        new Cell(),
-    }
-  };
+  private Cell[][] grid = new Cell[5][10];
   private Player player1;
   private Player player2;
   private Player nextPlayer;
+  private Snake[] snakes;
+  private Ladder[] ladders;
 
-	public Game(){
+	public Game(Snake[] snakes, Ladder[] ladders){
     player1 = new Player(this);
     player2 = new Player(this);
     nextPlayer = player1;
+    this.snakes = snakes;
+    this.ladders = ladders;
+    for(int i = 0; i < snakes.length; i++) {
+      grid[snakes[i].getStartRow()][snakes[i].getStartCol()] = snakes[i];
+    }
+    for(int i = 0; i < ladders.length; i++) {
+      grid[ladders[i].getStartRow()][ladders[i].getStartCol()] = ladders[i];
+    }
   }
 
   public void printBoard() {

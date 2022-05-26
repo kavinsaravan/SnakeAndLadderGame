@@ -1,10 +1,14 @@
 public class Cell {
-  private int row;
-  private int col;
+  private int startingRow;
+  private int startingCol;
+  private int endingRow;
+  private int endingCol;
   
-  public Cell(int row, int col) {
-    this.row = row;
-    this.col = col;
+  public Cell(int startRow, int startCol, int endRow, int endCol) {
+    startingRow = startRow;
+    startingCol = startCol;
+    endingRow = endRow;
+    endingCol = endCol;
   }
 
   public Cell(){
@@ -14,11 +18,16 @@ public class Cell {
     return "[ ]";
   }
 
-  public int getRow(){
-    return row;
+  public int getStartRow(){
+    return startingRow;
   }
-
-  public int getCol(){
-    return col;
+  public int getStartCol(){
+    return startingCol;
+  }
+  public int getEndRow(){
+    return endingRow;
+  }
+  public int getEndCol(){
+    return endingCol;
   }
 }

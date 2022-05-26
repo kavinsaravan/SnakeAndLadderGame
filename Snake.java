@@ -1,11 +1,11 @@
 public class Snake extends Cell{
   
 
-  public Snake(int row, int col) {
-    super(row, col);
+  public Snake(int startRow, int startCol, int endRow, int endCol) {
+    super(startRow, startCol, endRow, endCol);
   }
 
   public String toString() {
-    return "Snake: " + getRow() + "/" + getCol();
+    return "Snake: " + getStartRow() + "/" + getStartCol();
   }
 }

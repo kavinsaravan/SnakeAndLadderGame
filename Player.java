@@ -32,12 +32,12 @@
     Cell c = game.getCell(row, col); 
     if (c instanceof Snake) {
       Snake s = (Snake)c;
-      row = s.getRow();
-      col = s.getCol();
+      row = s.getEndRow();
+      col = s.getEndCol();
     } else if (c instanceof Ladder) {
       Ladder l = (Ladder)c;
-      row = l.getRow();
-      col = l.getCol();
+      row = l.getEndRow();
+      col = l.getEndCol();
     }
   }
 }
