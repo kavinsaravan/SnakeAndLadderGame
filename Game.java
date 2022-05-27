@@ -2,16 +2,12 @@ public class Game {
   private Cell[][] grid = new Cell[5][10];
   private Player player1;
   private Player player2;
-  private Player nextPlayer;
-  private Snake[] snakes;
-  private Ladder[] ladders;
+  private Player nextPlayer;  
 
-	public Game(Snake[] snakes, Ladder[] ladders){
-    player1 = new Player(this);
-    player2 = new Player(this);
+	public Game(Snake[] snakes, Ladder[] ladders, String nameOne, String nameTwo){
+    player1 = new Player(this, nameOne);
+    player2 = new Player(this, nameTwo);
     nextPlayer = player1;
-    this.snakes = snakes;
-    this.ladders = ladders;
     for(int i = 0; i < snakes.length; i++) {
       grid[snakes[i].getStartRow()][snakes[i].getStartCol()] = snakes[i];
     }
@@ -23,8 +19,16 @@ public class Game {
   public void printBoard() {
     for (int i = grid.length - 1; i >= 0; i--){
 			for (int j = 0; j < grid[i].length; j++){
-				System.out.print(grid[i][j] + ", ");
+        if (grid[i][j] == null){
+          System.out.print(" " + "  |  ");
+        } else {
+				  System.out.print(grid[i][j] + "  |  ");
+        }
 			}
+      System.out.println();
+      for (int k = 0; k < 20; k++) {
+        System.out.print(" - ");
+      }
       System.out.println();
 		}
   }
@@ -56,7 +60,6 @@ public class Game {
   public int getColLength(){
     return grid[0].length;
   }
-
   public int getRowLength(){
     return grid.length;
   }

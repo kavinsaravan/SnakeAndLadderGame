@@ -17,7 +17,6 @@ public class Cell {
   public String toString(){
     return "[ ]";
   }
-
   public int getStartRow(){
     return startingRow;
   }

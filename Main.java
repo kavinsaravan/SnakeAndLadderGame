@@ -1,4 +1,4 @@
- import java.util.*;
+import java.util.*;
 
 class Main {
   public static void main(String[] args) {
@@ -17,15 +17,26 @@ class Main {
         new Ladder(2, 2, 4, 5), 
         new Ladder(2, 6, 4, 7),
    };
-   Game grid = new Game(snakes, ladders);
-    
-   grid.printBoard();
-   while (true) {
-     Player p = grid.play();
-     if(p != null){
-       System.out.print(p + " you won! \n");
-       break;
-     }
+   Scanner input = new Scanner(System.in);
+   System.out.println("What is player 1's name? ");
+   String nameOne = input.nextLine();
+   Scanner secondInput = new Scanner(System.in);
+   System.out.println("What is player 2's name? ");
+   String nameTwo = input.nextLine();
+   Game grid = new Game(snakes, ladders, nameOne, nameTwo);
+
+  for (int i = 0; i < 20; i++) {
+    System.out.print(" - ");
+  }
+  System.out.println();
+  grid.printBoard();
+  System.out.println();
+  while (true) {
+    Player p = grid.play();
+    if(p != null){
+      System.out.println(p + " won!");
+      break;
     }
   }
+ }
 }
